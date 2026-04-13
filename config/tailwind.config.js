@@ -22,6 +22,7 @@ module.exports = {
       "evaluationLight": "#ddffd9",
       "chapterStrong": "#05636f",
       "surveyStrong": "#686f05",
+      "formback": "#1f2937"
       },
     extend: {
       fontFamily: {
