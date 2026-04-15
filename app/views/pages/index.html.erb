@@ -1,4 +1,23 @@
-<div>
-  <h1 class="font-bold text-4xl">Pages#index</h1>
-  <p>Find me in app/views/pages/index.html.erb</p>
-</div>
+<section class="flex justify-around h-screen items-center">
+  <div>
+    <h1 class="text-center font-bold text-3xl text-mainColor">Survey Rails App</h1>
+    <p class="text-center text-sm text-mainColor font-semibold">survey-rails-app.com</p>
+    <p class="py-5 text-sm font-semibold text-mainColor text-center">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br/>
+      Voluptatem laborum adipisci, officiis, corrupti nostrum omnis temporibus fuga natus quod tempora <br/>
+      repellat consequatur obcaecati vero harum, pariatur quos cum repudiandae reiciendis.
+    </p>
+    <div class="flex w-full justify-around">
+      <%= link_to root_path, id: "create_evaluation_index", class: "bg-evaluationStrong text-white px-4 py-3 rounded-lg font-semibold" do%>
+        <i class="fa-solid fa-square-poll-horizontal mr-2"></i>Create evaluation
+      <%end%>
+      <%= link_to root_path, id: "create_chapter_index", class: "bg-chapterStrong text-white px-4 py-3 rounded-lg font-semibold" do%>
+        <i class="fa-solid fa-list-check mr-2"></i>Create chapter
+      <%end%>
+    </div>
+  </div>
+  <div class="flex flex-col justify-center">
+    <span class="text-center text-lg font-semibold text-mainColor">You are in!</span>
+    <%= image_tag "3254897.jpg", width: 400%>
+  </div>
+</section>
