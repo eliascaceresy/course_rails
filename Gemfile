@@ -73,3 +73,7 @@ end
 gem "tailwindcss-rails", "~> 2.0"
 
 gem "devise", "~> 5.0"
+
+gem "dotenv", "~> 3.2"
+
+gem "mailcatcher", "~> 0.10.0"
