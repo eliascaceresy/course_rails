@@ -11,7 +11,7 @@
       We appreciate your participation and look forward to your valuable feedback!
     </p>
     <div class="flex justify-center my-4">
-      <%= button_to root_path, id: "create_evaluation_welcome" do %>
+      <%= link_to new_evaluation_path, id: "create_evaluation_welcome", data: { turbo_frame: "modal"} do %>
         <div class="bg-evaluationStrong text-white px-4 py-3 rounded-lg font-semibold">
           Create Evaluation
         </div>
