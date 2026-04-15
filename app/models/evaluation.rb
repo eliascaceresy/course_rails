@@ -1,0 +1,2 @@
+class Evaluation < Section
+end
