@@ -1,0 +1,21 @@
+<%= turbo_frame_tag "modal" %>
+<section id="evaluations_index">
+  <div class="py-10 flex flex-col w-full">
+    <h2 class="py-5 text-evaluationStrong font-bold text-center">Evaluations</h2>
+    <p class="text-sm text-center text-evaluationStrong font-semibold">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto rerum ipsum sit consequatur sapiente nesciunt quas <br/>
+      deserunt, ducimus asperiores commodi? Aliquid nisi vitae a magni sequi fugit tempore est voluptatum?</p>
+      <div class="flex justify-center my-4">
+        <%= link_to new_evaluation_path, id: "create_evaluation_welcome", data: { turbo_frame: "modal"} do %>
+          <div class="bg-evaluationStrong text-white px-4 py-3 rounded-lg font-semibold">
+            Create Evaluation
+          </div>
+        <%end%>
+    </div>
+  </div>
+  <div>
+    <% evaluations.each do |evaluation| %>
+      <%= render partial: "evaluation", locals: { evaluation: evaluation } %>
+    <% end %>
+  </div>
+</section>
