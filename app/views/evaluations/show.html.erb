@@ -1,23 +1,2 @@
-<section>
-  <div id="<%= dom_id @evaluation %>" class="border-2 w-9/12 mx-auto flex h-40 rounded-lg shadow-lg p-2 m-5">
-    <div class="w-40">
-      <%= image_tag "Upload.png", class: "object-fit h-full w-full" %>
-    </div>
-    <div class="w-full p-5 text-evaluationStrong">
-      <p class="text-3xl font-bold">
-        <%= @evaluation.name %>
-        <i class="fa-solid fa-list-check ml-2"></i>
-      </p>
-      <p class="my-2 font-semibold">
-        <%= @evaluation.description %>
-      </p>
-      <p class="font-semibold text-sm">
-        <%= @evaluation.user.email %>
-      </p>
-    </div>
-    <div class="flex flex-col justify-between p-2">
-      <i class="fa-solid fa-pen text-editIcon"></i>
-      <i class="fa-solid fa-trash text-removeIcon"></i>
-    </div>
-  </div>
-</section>
+<%= turbo_frame_tag "modal" %>
+<%= render "card_evaluation", evaluation: @evaluation %>
