@@ -1,0 +1,21 @@
+<%= turbo_frame_tag "modal" %>
+<section id="chapters_index">
+  <div class="py-10 flex flex-col w-full">
+    <h2 class="py-5 text-chapterStrong font-bold text-center">Chapters</h2>
+    <p class="text-sm text-center text-chapterStrong font-semibold">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto rerum ipsum sit consequatur sapiente nesciunt quas <br/>
+      deserunt, ducimus asperiores commodi? Aliquid nisi vitae a magni sequi fugit tempore est voluptatum?</p>
+      <div class="flex justify-center my-4">
+        <%= link_to new_chapter_path, id: "create_chapter_welcome", data: { turbo_frame: "modal"} do %>
+          <div class="bg-chapterStrong text-white px-4 py-3 rounded-lg font-semibold">
+            Create chapter
+          </div>
+        <%end%>
+    </div>
+  </div>
+  <div>
+    <% chapters.each do |chapter| %>
+      <%= render partial: "chapter", locals: { chapter: chapter } %>
+    <% end %>
+  </div>
+</section>

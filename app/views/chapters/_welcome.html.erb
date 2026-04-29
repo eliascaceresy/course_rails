@@ -1,0 +1,22 @@
+<%= turbo_frame_tag "modal" %>
+<section class="flex justify-around items-center h-screen" id="chapters_index">
+  <div>
+    <%= image_tag "4884176.jpg", width: 500 %>
+  </div>
+  <div>
+    <h1 class="text-center font-bold text-3xl text-chapterStrong">Chapters</h1>
+    <p class="text-center py-2 font-semibold text-chapterStrong">
+      Welcome to the chapters page! Here you can find all the information about the chapters, <br/>
+      including guidelines, criteria, and deadlines. Please make sure to review all the materials carefully and submit <br/>
+      your evaluations on time. If you have any questions or need assistance, feel free to reach out to the support team. <br/>
+      We appreciate your participation and look forward to your valuable feedback!
+    </p>
+    <div class="flex justify-center my-4">
+      <%= link_to new_chapter_path, id: "create_chapter_welcome", data: { turbo_frame: "modal"} do %>
+        <div class="bg-chapterStrong text-white px-4 py-3 rounded-lg font-semibold">
+          Create Chapter
+        </div>
+      <%end%>
+    </div>
+  </div>
+</section>

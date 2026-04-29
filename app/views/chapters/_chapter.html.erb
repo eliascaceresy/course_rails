@@ -1,27 +1,25 @@
-<div id="<%= dom_id chapter %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= chapter.name %>
-  </p>
+<div id="<%= dom_id chapter %>" class="border-2 w-9/12 mx-auto flex h-40 rounded-lg shadow-lg p-2 m-5">
+  <div class="w-40">
+    <%= image_tag "Upload.png", class: "object-fit h-full w-full" %>
+  </div>
+  <div class="w-full p-5">
+    <p>
+      Name:
+      <strong class="font-semibold"><%= chapter.name %></strong>
+    </p>
+    <p>
+      Description:
+      <strong class="font-semibold"><%= chapter.description %></strong>
+    </p>
+    <p>
+      User:
+      <strong class="font-semibold"><%= chapter.user.email %></strong>
+    </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= chapter.description %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Type:</strong>
-    <%= chapter.type %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Body:</strong>
-    <%= chapter.body %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">User:</strong>
-    <%= chapter.user_id %>
-  </p>
-
+    <div class="flex justify-end">
+      <%= link_to chapter_path(chapter), class: "rounded-lg bg-chapterStrong px-5 py-2 text-white text-sm font-semibold" do %>
+        See More      
+      <% end %>
+    </div>
+  </div>
 </div>

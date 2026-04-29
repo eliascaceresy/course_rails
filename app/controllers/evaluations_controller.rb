@@ -58,6 +58,6 @@ class EvaluationsController < ApplicationController
     end
 
     def evaluation_params
-      params.require(:evaluation).permit(:name, :description, :body)
+      params.require(:evaluation).permit(:name, :description)
     end
 end

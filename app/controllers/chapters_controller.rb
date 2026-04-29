@@ -1,59 +1,60 @@
 class ChaptersController < ApplicationController
   before_action :set_chapter, only: %i[ show edit update destroy ]
 
-  # GET /chapters or /chapters.json
   def index
     @chapters = Chapter.all
   end
 
-  # GET /chapters/1 or /chapters/1.json
   def show
   end
 
-  # GET /chapters/new
   def new
     @chapter = Chapter.new
   end
 
-  # GET /chapters/1/edit
   def edit
   end
 
-  # POST /chapters or /chapters.json
   def create
     @chapter = Chapter.new(chapter_params)
+    @chapter.user = current_user
 
     respond_to do |format|
       if @chapter.save
-        format.html { redirect_to @chapter, notice: "Chapter was successfully created." }
-        format.json { render :show, status: :created, location: @chapter }
+        format.turbo_stream { 
+          render turbo_stream: turbo_stream.replace(
+            "chapters_index", 
+            partial: "chapters/chapters", 
+            locals: { chapters: Chapter.all }
+          )
+        }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @chapter.errors, status: :unprocessable_entity }
+        format.turbo_stream { render :new, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /chapters/1 or /chapters/1.json
   def update
     respond_to do |format|
       if @chapter.update(chapter_params)
-        format.html { redirect_to @chapter, notice: "Chapter was successfully updated.", status: :see_other }
-        format.json { render :show, status: :ok, location: @chapter }
+        format.turbo_stream { 
+          render turbo_stream: turbo_stream.replace(
+            "chapter_#{@chapter.id}", 
+            partial: "chapters/card_chapter", 
+            locals: { chapter: @chapter }
+          )
+        }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @chapter.errors, status: :unprocessable_entity }
+        format.turbo_stream { render :new, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /chapters/1 or /chapters/1.json
   def destroy
     @chapter.destroy
 
     respond_to do |format|
       format.html { redirect_to chapters_path, notice: "Chapter was successfully destroyed.", status: :see_other }
-      format.json { head :no_content }
     end
   end
 
@@ -65,6 +66,6 @@ class ChaptersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def chapter_params
-      params.require(:chapter).permit(:name, :description, :type, :body, :user_id)
+      params.require(:chapter).permit(:name, :description)
     end
 end
